@@ -1,0 +1,37 @@
+<!--
+  Generated template for the ModifParamEl1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>modifParamEL1</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Modification des paramètres de l'exercice 1</h1>
+  <h4>Temps de réponse (en seconde)</h4>
+  <ion-item>
+    <ion-input [(ngModel)]="tpsRep" type="number" placeholder="Temps de réponse" min="1" (change)="onchangeTpsRep()"></ion-input>
+  </ion-item>
+  <h4>Nombre de mots à faire apparaitre</h4>
+  <ion-item>
+    <ion-input [(ngModel)]="tpsRep" type="number" placeholder="Temps de réponse" min="1" (change)="onchangeTpsRep()"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col col-8>
+      <h5>Faire apparaitre plusieurs proposition à la foie</h5>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+        <ion-toggle [(ngModel)]="isMultipleAppSimult"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  
+</ion-content>

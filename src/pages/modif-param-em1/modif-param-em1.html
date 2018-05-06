@@ -1,0 +1,181 @@
+<!--
+  Generated template for the ModifParamEm1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>modifParamEM1</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Modification des paramètres de l'exercice 1</h1>
+  <h4>Choix du type de réponse</h4>
+  <ion-list radio-group [(ngModel)]="typeRep">
+    <ion-item>
+      <ion-label>Frise</ion-label>
+      <ion-radio value="frise" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Boutons</ion-label>
+      <ion-radio value="boutton"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="typeRep=='frise'">
+    <h4>Nombre de bornes</h4>
+    <ion-list radio-group [(ngModel)]="nbBornes">
+      <ion-item>
+        <ion-label>1</ion-label>
+        <ion-radio value=1 checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>2</ion-label>
+        <ion-radio value=2></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>3</ion-label>
+        <ion-radio value=3></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="typeRep=='boutton'">
+    <h4>Nombre de boutons</h4>
+    <ion-list radio-group [(ngModel)]="nbBoutons">
+      <ion-item>
+        <ion-label>2</ion-label>
+        <ion-radio value=2></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>3</ion-label>
+        <ion-radio value=3></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+  <h4>Nombre de questions</h4>
+  <ion-item>
+    <ion-input type="number" placeholder="nombre de questions" min="1" [(ngModel)]="nbQuest"></ion-input>
+  </ion-item>
+  <h4>Ordre d'apparition</h4>
+
+  <div *ngIf="typeRep=='boutton'">
+    <ion-list radio-group [(ngModel)]="ordreBtn">
+      <ion-item>
+        <ion-label>Calcul avant boutons</ion-label>
+        <ion-radio value=true></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Boutons avant calcul</ion-label>
+        <ion-radio value=false></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="typeRep=='frise'">
+    <ion-list radio-group [(ngModel)]="ordreFrise">
+      <ion-item>
+        <ion-label>Calcul avant bornes</ion-label>
+        <ion-radio value=true></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bornes avant calcul</ion-label>
+        <ion-radio value=false></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-row>
+    <ion-col col-8>
+      <h5 *ngIf="typeRep=='boutton' && ordreBtn==true || typeRep=='frise' && ordreFrise==true">Disparition du calcul</h5>
+      <h5 *ngIf="typeRep=='frise' && ordreFrise==false">Disparition des bornes</h5>
+      <h5 *ngIf="typeRep=='boutton' && ordreBtn==false">Disparition des boutons</h5>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+        <ion-toggle [(ngModel)]="isDispAllow"></ion-toggle>
+      </ion-item>
+    </ion-col>
+
+  </ion-row>
+  <div *ngIf="isDispAllow==true">
+    <h4 *ngIf="typeRep=='boutton' && ordreBtn==true || typeRep=='frise' && ordreFrise==true">Temps avant distarition du calcul (en seconde)</h4>
+    <h4 *ngIf="typeRep=='frise' && ordreFrise==false">Temps avant distarition des bornes (en seconde)</h4>
+    <h4 *ngIf="typeRep=='boutton' && ordreBtn==false">Temps avant distarition des boutons (en seconde)</h4>
+    <ion-item>
+      <ion-input [(ngModel)]="tpsAvDisp" type="number" placeholder="Temps avant distarition" min="1" max={{tpsRep}}></ion-input>
+    </ion-item>
+  </div>
+  <h4>Temps de réponse (en seconde)</h4>
+  <ion-item>
+    <ion-input [(ngModel)]="tpsRep" type="number" placeholder="Temps de réponse" min="1" (change)="onchangeTpsRep()"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col col-8>
+      <h5>Utiliser seulement des chiffres pairs</h5>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+        <ion-toggle [(ngModel)]="isPairAllow"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="typeRep=='frise'">
+    <ion-col col-8>
+      <h5>Bornes selectionnables</h5>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+        <ion-toggle [(ngModel)]="isBorneSelectAllow"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="typeRep=='frise'">
+    <ion-col col-8>
+      <h5>Une des borne égale à un des oppérandes</h5>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+        <ion-toggle [(ngModel)]="isBorneEgualOppAllow"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <h4>Valeur maximale du résultat du calcul</h4>
+  <ion-item>
+    <ion-input [(ngModel)]="valMaxRes" type="number" placeholder="Valeur maximale" min="2"></ion-input>
+  </ion-item>
+  <h4>Opérateurs à utiliser</h4>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>+</ion-label>
+        <ion-checkbox [(ngModel)]="usePlus"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>-</ion-label>
+        <ion-checkbox [(ngModel)]="useMoins"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>X</ion-label>
+        <ion-checkbox [(ngModel)]="useMult"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>/</ion-label>
+        <ion-checkbox [(ngModel)]="useDiv"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <h4 *ngIf="!useDiv && !useMult && !useMoins && !usePlus" class="warn">Vous êtes obliger de cocher un des 4 opérateurs.</h4>
+  <button *ngIf="!(!useDiv && !useMult && !useMoins && !usePlus)" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
+</ion-content>

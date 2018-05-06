@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <h1>Accueil</h1>
+
+  <ion-card *ngFor="let cardAccueil of listeCard"
+            (click)='onClickCardAccueil(cardAccueil)'>
+    <img src={{cardAccueil.imgSource}}/>
+    <div class="card-title">{{cardAccueil.title}}</div>   
+  </ion-card>
+  
+</ion-content>
+

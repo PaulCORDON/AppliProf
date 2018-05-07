@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ParamEl1 } from '../../model/ParamEl1';
 
 /**
  * Generated class for the ModifParamEl1Page page.
@@ -14,12 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'modif-param-el1.html',
 })
 export class ModifParamEl1Page {
-  isMultipleAppSimult:Boolean=false;
+  isMultipleAppSimult: Boolean = false;
+  isDispEnonce: Boolean = false;
+  tpsRep: number = 7;
+  nbMotTotal: Number = 20;
+  nbProp: Number = 2;
+  param: ParamEl1;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModifParamEl1Page');
   }
+  onClickEnregistrerParam() {
+    this.tpsRep = this.tpsRep * 1000;
+    this.param = new ParamEl1(1, this.tpsRep, this.nbMotTotal, this.isMultipleAppSimult, this.isDispEnonce, this.nbProp);
+    console.log(JSON.stringify(this.param));
 
+  }
 }

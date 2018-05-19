@@ -16,7 +16,7 @@
 <ion-content padding>
   <h1>Nouvelle classe</h1>
   <ion-item>
-    <ion-input type="text" placeholder="Nom de la classe"></ion-input>
+    <ion-input [(ngModel)]="nom" type="text" placeholder="Nom de la classe"></ion-input>
   </ion-item>
   <button ion-button icon-right (click)='onClickSaveClasse()'>
     Enregistrer

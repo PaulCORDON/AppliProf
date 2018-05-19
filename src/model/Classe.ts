@@ -2,11 +2,11 @@ import { Eleve } from "./Eleve";
 
 export class Classe {
      
-    public name:String;
+    public nom:String;
     public listeEleve: Eleve[];
     
     constructor(name:String,listeEleve: Eleve[]){
-        this.name=name;
+        this.nom=name;
         this.listeEleve=listeEleve;
         } 
 }

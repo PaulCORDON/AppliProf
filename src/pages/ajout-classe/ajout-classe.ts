@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { ApiServiceProvider } from '../../providers/api-service/api-service';
+import { Classe } from '../../model/Classe';
 
 
 /**
@@ -15,8 +17,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ajout-classe.html',
 })
 export class AjoutClassePage {
- 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  nom:String;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public apiservice:ApiServiceProvider, public alert: AlertController) {
     
   }
 
@@ -24,6 +26,13 @@ export class AjoutClassePage {
     console.log('ionViewDidLoad AjoutClassePage');
   }
   onClickSaveClasse(){
-    /**TODO sauvegarder classe */
+    this.apiservice.addClasse(new Classe(this.nom,null))
+    .then(() => {
+      console.log(`addClasse ok`);
+
+    })
+    .catch((err) => {
+      console.log(`addClasse ${JSON.stringify(err)}`);
+    });
   }
 }

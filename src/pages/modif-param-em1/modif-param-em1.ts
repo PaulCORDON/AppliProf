@@ -18,8 +18,8 @@ export class ModifParamEm1Page {
   typeRep:any="boutton";
   nbBornes:Number=1;
   nbBoutons:Number=2;
-  ordreBtn:Boolean=true;
-  ordreFrise:Boolean=true;
+  ordreBtn:Boolean=false;
+  ordreFrise:Boolean=false;
   nbQuest:Number=10;
   isDispAllow:Boolean=true;
   isPairAllow:Boolean=true;

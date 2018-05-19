@@ -19,6 +19,7 @@ import { ParamEnregistresPage } from '../pages/param-enregistres/param-enregistr
 import { AjoutClassePage } from '../pages/ajout-classe/ajout-classe';
 import { ModifClassePage } from '../pages/modif-classe/modif-classe';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
 
   ],

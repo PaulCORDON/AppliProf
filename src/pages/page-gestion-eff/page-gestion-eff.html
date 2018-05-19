@@ -17,9 +17,11 @@
   <h1>Liste des classes</h1>
   <ion-list *ngFor="let classe of listeClasse">
     <ion-row>
-      <ion-col>
-        <div>{{classe.name}}</div>
+      <ion-col >
+        <div><h4>{{classe.nom}}</h4></div>
       </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col>
         <button ion-button icon-right (click)='onClickModifClasse(classe)'>
           Modifier

@@ -21,6 +21,7 @@ export class ModifParamEl1Page {
   nbMotTotal: Number = 20;
   nbProp: Number = 2;
   param: ParamEl1;
+  tempsApp:Number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -29,8 +30,12 @@ export class ModifParamEl1Page {
     console.log('ionViewDidLoad ModifParamEl1Page');
   }
   onClickEnregistrerParam() {
-    this.tpsRep = this.tpsRep * 1000;
-    this.param = new ParamEl1(1, this.tpsRep, this.nbMotTotal, this.isMultipleAppSimult, this.isDispEnonce, this.nbProp);
+    if(!this.isMultipleAppSimult){
+      this.nbProp=1;
+    }
+    
+    this.tempsApp = this.tpsRep * 1000;
+    this.param = new ParamEl1(1, this.tempsApp, this.nbMotTotal, this.isMultipleAppSimult, this.isDispEnonce, this.nbProp);
     console.log(JSON.stringify(this.param));
 
   }

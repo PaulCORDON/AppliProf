@@ -20,6 +20,7 @@ import { AjoutClassePage } from '../pages/ajout-classe/ajout-classe';
 import { ModifClassePage } from '../pages/modif-classe/modif-classe';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
 import { HttpClientModule } from '@angular/common/http';
+import { AjoutElevePage } from '../pages/ajout-eleve/ajout-eleve';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModifParamEl1Page,
     ParamEnregistresPage,
     AjoutClassePage,
-    ModifClassePage
+    ModifClassePage,
+    AjoutElevePage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModifParamEl1Page,
     ParamEnregistresPage,
     AjoutClassePage,
-    ModifClassePage
+    ModifClassePage,
+    AjoutElevePage
   ],
   providers: [
     StatusBar,

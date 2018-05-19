@@ -34,7 +34,17 @@ export class ApiServiceProvider {
 
   addEleve(data:Eleve):Promise<void> {
     return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/eleve', JSON.stringify(data))
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+      /*
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+      */
+      this.http.post(this.apiUrl+'/eleve', 
+                    JSON.stringify(data), 
+                    { headers: headers })
         .subscribe(res => {
           resolve();
         }, (err) => {
@@ -48,6 +58,7 @@ export class ApiServiceProvider {
       headers.append('Accept','application/json');
       this.http.get(this.apiUrl+'/classe').subscribe(data => {
         let json: Array<Classe> = data as Array<Classe>;
+        console.log(data);
         resolve(json);
       }, err => {
         console.log(err);
@@ -58,6 +69,7 @@ export class ApiServiceProvider {
     return new Promise((resolve, reject) => {
 
       this.http.get(this.apiUrl+'/classe').subscribe(data => {
+        console.log(data);
         resolve(data);
       }, err => {
         reject(err);

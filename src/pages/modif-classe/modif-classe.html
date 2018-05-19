@@ -14,33 +14,29 @@
 
 
 <ion-content padding>
-  <h1>Liste des élèves de la classe {{classe.name}}</h1>
+  <h1>Liste des élèves de la classe {{classe.nom}}</h1>
   <ion-list *ngFor="let eleve of listeEleve">
     <ion-row>
       <ion-col>
-        <div>{{eleve.name}}</div>
+        <div><h4>{{eleve.nomPrenom}}</h4></div>
       </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col>
-        <button ion-button icon-right (click)='onClickModifEleve(eleve)'>
+        <button ion-button  small icon-right (click)='onClickModifEleve(eleve)'>
           Modifier
           <ion-icon name="md-create"></ion-icon>
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-right (click)='onClickSwapEleve(eleve)'>
-          Changer de classe
-          <ion-icon name="swap"></ion-icon>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-right (click)='onClickSupprEleve(eleve)'>
+        <button ion-button small icon-right (click)='onClickSupprEleve(eleve)'>
           Supprimer
           <ion-icon name="close"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
   </ion-list>
-  <button ion-button icon-right (click)='onClickAddEleve()'>
+  <button ion-button icon-right (click)='onClickAddEleve(eleve)'>
       Ajouter un eleve
       <ion-icon name="add"></ion-icon>
   </button>

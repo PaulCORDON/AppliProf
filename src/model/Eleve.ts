@@ -2,12 +2,13 @@ import { Competence } from "./Competence";
 
 export class Eleve {
      
-    public name:String;
+    public nomPrenom:String;
     public listeCompetence: Competence[];
     public dateDeNaissance:Date;
+    public classeId:number;
    
     constructor(name:String,listeCompetence: Competence[]){
-           this.name=name;
+           this.nomPrenom=name;
            this.listeCompetence=listeCompetence;
     } 
 }

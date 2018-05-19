@@ -19,7 +19,7 @@ import { ApiServiceProvider } from '../../providers/api-service/api-service';
   templateUrl: 'page-gestion-eff.html',
 })
 export class PageGestionEffPage {
-  listeClasse: Classe[] = [];
+  listeClasse: Array<Classe>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiservice:ApiServiceProvider, public alert: AlertController) {
   }
 
@@ -36,7 +36,7 @@ export class PageGestionEffPage {
     console.log(`getClasse ${JSON.stringify(err)}`);
   });
   }
-  
+
   onClickModifClasse(c:Classe){
     this.navCtrl.push(ModifClassePage,{classe:c});
   }

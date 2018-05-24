@@ -1,7 +1,12 @@
 import { ParamMath } from "./ParamMath";
 
 export class ParamEm1 extends ParamMath{
-	public  nbBornes:Number;
+    /**
+     * nom du parametre donner par le prof
+     */
+    public nom:String;
+    
+    public  nbBornes:Number;
     /**
      * Nombre de bornes
      */
@@ -55,12 +60,13 @@ export class ParamEm1 extends ParamMath{
      * boolean pour dire si l'exercice utilisera une frise ou des boutons
      */   
 
-    public constructor(f:Boolean ,t:Number,p:Boolean,o:Boolean[],nbb:Number,nbq:Number,d:Boolean,tra:Number,oa:Boolean,bs:Boolean,beo:Boolean,vm:Number)
+    public constructor(nom:String,f:Boolean ,t:Number,p:Boolean,o:Boolean[],nbb:Number,nbq:Number,d:Boolean,tra:Number,oa:Boolean,bs:Boolean,beo:Boolean,vm:Number)
     /**
      * Constructeur de paramètres personalisés
      */
     {
         super(t, p, o);
+        this.nom=nom;
         this.frise = f;
         this.nbBornes = nbb;
         this.nbQuestions = nbq;

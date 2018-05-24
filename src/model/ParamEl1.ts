@@ -1,5 +1,8 @@
 export class ParamEl1{
-
+    /**
+     * nom du parametre donner par le prof
+     */
+    public nom:String;
     /**
      * Nombre de mots contenue dans l'émoncé
      */
@@ -49,7 +52,8 @@ export class ParamEl1{
      * @param enonceDisparait    Vrai : L'énoncé disparaitra au bout d'un certain temps.
      *                           Faux : L'énoncé ne disparaitra pas.
      */
-    public constructor(nbEnonce:Number,tempsApparution:Number,nbApparution:Number,multipleApparution:Boolean,enonceDisparait:Boolean,nbAparitionSimultanee:Number) {
+    public constructor(nom:String, nbEnonce:Number,tempsApparution:Number,nbApparution:Number,multipleApparution:Boolean,enonceDisparait:Boolean,nbAparitionSimultanee:Number) {
+        this.nom=nom;
         this.enonceDisparait = enonceDisparait;
         this.multipleApparution = multipleApparution;
         this.nbApparition = nbApparution;

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Classe } from '../../model/Classe';
 import { Eleve } from '../../model/Eleve';
 import { AjoutElevePage } from '../ajout-eleve/ajout-eleve';
+import { ApiServiceProvider } from '../../providers/api-service/api-service';
 
 /**
  * Generated class for the ModifClassePage page.
@@ -19,7 +20,7 @@ import { AjoutElevePage } from '../ajout-eleve/ajout-eleve';
 export class ModifClassePage {
   classe : Classe;
   listeEleve : Array<Eleve>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public apiservice:ApiServiceProvider, public alert: AlertController) {
     this.classe=this.navParams.get("classe")
   }
 
@@ -28,9 +29,24 @@ export class ModifClassePage {
     this.listeEleve=this.classe.listeEleve;
     console.log(`getClasse ${JSON.stringify(this.classe.listeEleve)}`);
   }
-  onClickAddEleve(eleve){
-    this.navCtrl.push(AjoutElevePage,{classe:this.classe,eleve:eleve});
+
+  ionViewWillEnter(){
+    this.listeEleve=this.classe.listeEleve;
+    console.log(`getClasse ${JSON.stringify(this.classe.listeEleve)}`);
+  }
+
+  onClickAddEleve(){
+    this.navCtrl.push(AjoutElevePage,{classe:this.classe});
   }
   onClickModifEleve(eleve){}
-  onClickSupprEleve(eleve){}
+
+  onClickSupprEleve(eleve){
+    this.apiservice.deleteEleve(eleve,this.classe).then(()=>{
+      let nom=this.classe.nom;
+      this.apiservice.getClasses(this.classe.nom).then(res=>{this.classe=res;
+        this.classe.nom=nom;
+      })
+      
+    })
+  }
 }

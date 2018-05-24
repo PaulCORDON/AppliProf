@@ -28,6 +28,7 @@ export class AjoutClassePage {
   onClickSaveClasse(){
     this.apiservice.addClasse(new Classe(this.nom,null,null))
     .then(() => {
+      this.navCtrl.pop();
       console.log(`addClasse ok`);
 
     })

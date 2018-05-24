@@ -1,10 +1,10 @@
 import { SousCompetence } from "./SousCompetence";
 
 export class Competence {
-     
+    public id:number;
     public name:String;
     public progression:number;
-    public listeSousCompetence: SousCompetence[];
+    public listeSousCompetence: Array<SousCompetence>;
    
     constructor(name:String,listeSousCompetence: SousCompetence[]){
            this.name=name;

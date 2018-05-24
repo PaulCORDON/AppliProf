@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ApiServiceProvider } from '../../providers/api-service/api-service';
 import { Classe } from '../../model/Classe';
 import { Eleve } from '../../model/Eleve';
+import { Competence } from '../../model/Competence';
+
 
 /**
  * Generated class for the AjoutElevePage page.
@@ -19,15 +21,23 @@ import { Eleve } from '../../model/Eleve';
 export class AjoutElevePage {
   classe:Classe;
   eleve:Eleve;
+  nomPrenom:String;
+  dateNaissance:Date;
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiservice:ApiServiceProvider, public alert: AlertController) {
     this.classe=this.navParams.get("classe")
-    this.eleve=this.navParams.get("eleve")
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AjoutElevePage');
   }
-  onClickSaveClasse(){
-   
+  onClickSaveEleve(){
+    this.eleve=new Eleve(this.nomPrenom,this.classe.id,this.dateNaissance,this.classe.nom,new Array<Competence>());
+    console.log(JSON.stringify(this.eleve));
+    this.apiservice.addEleve(this.eleve).then(()=>{
+      this.classe.listeEleve.push(this.eleve);
+      this.navCtrl.pop();
+    })
+      
+
   }
 }

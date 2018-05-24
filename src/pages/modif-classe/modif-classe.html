@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <h1>Liste des élèves de la classe {{classe.nom}}</h1>
-  <ion-list *ngFor="let eleve of listeEleve">
+  <ion-list *ngFor="let eleve of classe.listeEleve">
     <ion-row>
       <ion-col>
         <div><h4>{{eleve.nomPrenom}}</h4></div>

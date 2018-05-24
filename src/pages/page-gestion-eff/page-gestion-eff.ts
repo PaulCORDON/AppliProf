@@ -26,23 +26,32 @@ export class PageGestionEffPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad PageGestionEffPage');
-      this.apiservice.getAllClasse()
-  .then((rep) => {
-    this.listeClasse=rep;
-    console.log(`getClasse ok`);
+     
+  }
 
-  })
-  .catch((err) => {
-    console.log(`getClasse ${JSON.stringify(err)}`);
-  });
+  ionViewWillEnter(){
+    this.apiservice.getAllClasse()
+    .then((rep) => {
+      this.listeClasse=rep;
+      console.log(`getClasse ok`);
+  
+    })
+    .catch((err) => {
+      console.log(`getClasse ${JSON.stringify(err)}`);
+    });
   }
 
   onClickModifClasse(c:Classe){
     this.navCtrl.push(ModifClassePage,{classe:c});
   }
   onClickSupprClasse(c:Classe){
-     //**TODO suprimmer une classe */
+    this.apiservice.deleteClasse(c).then(()=>{
+      this.apiservice.getAllClasse().then((rep)=>{
+        this.listeClasse=rep;
+      })
+    })
   }
+  
   onClickAddClasse(){
     this.navCtrl.push(AjoutClassePage);
   }

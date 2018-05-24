@@ -42,6 +42,7 @@ export class ApiServiceProvider {
       headers = headers.append('Access-Control-Allow-Origin', '*');
       headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       */
+     console.log(JSON.stringify(data));
       this.http.post(this.apiUrl+'/eleve', 
                     JSON.stringify(data), 
                     { headers: headers })
@@ -52,6 +53,21 @@ export class ApiServiceProvider {
         });
     });
   }
+
+
+  deleteEleve(eleve:Eleve,classe:Classe):Promise<void>{
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.apiUrl+'/classe/'+classe.nom+'/eleve/'+eleve.nomPrenom)
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+
   getAllClasse(): Promise<Array<Classe>> {    
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
@@ -65,12 +81,14 @@ export class ApiServiceProvider {
       });
     });
   }
-  getClasses(nomClasse:string ) {
+
+  getClasses(nomClasse:String ):Promise<Classe> {
     return new Promise((resolve, reject) => {
 
       this.http.get(this.apiUrl+'/classe').subscribe(data => {
         console.log(data);
-        resolve(data);
+        let json:Classe = data as Classe;
+        resolve(json);
       }, err => {
         reject(err);
         console.log(err);
@@ -97,6 +115,18 @@ export class ApiServiceProvider {
           reject(err);
         });
     });
+  }
+
+  deleteClasse(classe:Classe):Promise<void>{
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.apiUrl+'/classe/'+classe.nom)
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+
   }
 
   addParamEm1(data:ParamEm1):Promise<void> {

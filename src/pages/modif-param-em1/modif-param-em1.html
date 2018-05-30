@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>modifParamEM1</ion-title>
+    <ion-title>Modification de paramètres</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>Modification des paramètres de l'exercice 1</h1>
+  <h1>Modification des paramètres de l'exercice 1 de calcul</h1>
   <h4>Choix du type de réponse</h4>
   <ion-list radio-group [(ngModel)]="typeRep">
     <ion-item>
@@ -173,6 +173,18 @@
       <ion-item>
         <ion-label>/</ion-label>
         <ion-checkbox [(ngModel)]="useDiv"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h5>Nom du paramètre à enregistrer</h5>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+     <ion-col>
+      <ion-item>
+        <ion-input [(ngModel)]="nom" type="text" placeholder="nom du paramètre"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>

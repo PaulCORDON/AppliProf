@@ -37,6 +37,7 @@ export class ModifParamEm1Page {
   nbb:Number;
   oa:Boolean;
   param:ParamEm1;
+  nom:String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -75,7 +76,7 @@ export class ModifParamEm1Page {
     if(this.useDiv){
       this.tabOpp[3]=true;
     }
-    this.param = new ParamEm1(this.isFrise,this.tpsRep,this.isPairAllow,this.tabOpp,this.nbb,this.nbQuest,this.isDispAllow,this.tpsAvDisp,this.oa,this.isBorneSelectAllow,this.isBorneEgualOppAllow,this.valMaxRes);   
+    this.param = new ParamEm1(this.nom,this.isFrise,this.tpsRep,this.isPairAllow,this.tabOpp,this.nbb,this.nbQuest,this.isDispAllow,this.tpsAvDisp,this.oa,this.isBorneSelectAllow,this.isBorneEgualOppAllow,this.valMaxRes);   
     console.log(JSON.stringify(this.param));
   }
 

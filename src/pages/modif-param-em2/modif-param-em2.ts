@@ -32,7 +32,7 @@ export class ModifParamEm2Page {
   repPaveNum=false;
   pairOnly: boolean=false;
   tabOpp:Boolean[] = [false,false,false,false];
-
+  nom:String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -67,7 +67,7 @@ export class ModifParamEm2Page {
     if(this.useDiv){
       this.tabOpp[3]=true;
     }
-    this.param= new ParamEm2(this.typeRep,this.nbQuest,this.valMaxOpp,this.usePair,this.useImpair,this.repDeuxB,this.repQuatreB,this.repPaveNum,this.tpsRep,this.pairOnly,this.tabOpp);
+    this.param= new ParamEm2(this.nom,this.typeRep,this.nbQuest,this.valMaxOpp,this.usePair,this.useImpair,this.repDeuxB,this.repQuatreB,this.repPaveNum,this.tpsRep,this.pairOnly,this.tabOpp);
     console.log(JSON.stringify(this.param));
   }
 

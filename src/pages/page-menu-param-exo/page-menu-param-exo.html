@@ -7,15 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>PageMenuParamExo</ion-title>
+    <ion-title>Menu des paramètres</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-    <h1>Modification des paramètres des exercices</h1>
-
     <ion-card *ngFor="let cardAccueil of listeCard" (click)='onClickCardAccueil(cardAccueil)'>
       <img src={{cardAccueil.imgSource}}/>
       <div class="card-title">{{cardAccueil.title}}</div>   

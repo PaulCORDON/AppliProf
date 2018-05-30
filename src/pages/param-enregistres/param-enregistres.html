@@ -7,12 +7,84 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ParamEnregistres</ion-title>
+    <ion-title>Paramètres enregistrés</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <h4>Listes des parametres exercices 1 calcul</h4>
+  <ion-list *ngFor="let param of listeParamEm1">
+    <ion-row>
+      <ion-col>
+        <div>
+          <h4>{{param.nom}}</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button small icon-right (click)='onClickAppliParam(param)'>
+          Appliquer
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button small icon-right (click)='onClickSuppParam(param)'>
+          Supprimer
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+    <h4>Listes des parametres exercices 2 calcul</h4>
+    <ion-list *ngFor="let param of listeParamEm2">
+      <ion-row>
+        <ion-col>
+          <div>
+            <h4>{{param.nom}}</h4>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button small icon-right (click)='onClickAppliParam(param)'>
+            Appliquer
+            <ion-icon name="md-create"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button small icon-right (click)='onClickSuppParam(param)'>
+            Supprimer
+            <ion-icon name="md-create"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+      <h4>Listes des parametres exercices 1 lecture</h4>
 
+      <ion-list *ngFor="let param of listeParamEl1">
+        <ion-row>
+          <ion-col>
+            <div>
+              <h4>{{param.nom}}</h4>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button small icon-right (click)='onClickAppliParam(param)'>
+              Appliquer
+              <ion-icon name="md-create"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button small icon-right (click)='onClickSuppParam(param)'>
+              Supprimer
+              <ion-icon name="md-create"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
 </ion-content>

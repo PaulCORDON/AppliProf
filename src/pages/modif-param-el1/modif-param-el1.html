@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>modifParamEL1</ion-title>
+    <ion-title>Modification de paramètres</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>Modification des paramètres de l'exercice 1</h1>
+  <h1>Modification des paramètres de l'exercice 1 de lecture</h1>
   <h4>Temps de réponse (en seconde)</h4>
   <ion-item>
     <ion-input [(ngModel)]="tpsRep" type="number" placeholder="Temps de réponse" min="1"></ion-input>
@@ -80,9 +80,6 @@
       </ion-row>
     </ion-list>
   </div>
-
-
-
   <ion-row>
     <ion-col col-8>
       <h5>Faire disparaitre l'énoncé au cours de l'exercice</h5>
@@ -93,6 +90,19 @@
       </ion-item>
     </ion-col>
   </ion-row>
+  <ion-row>
+    <ion-col>
+      <h5>Nom du paramètre à enregistrer</h5>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-input [(ngModel)]="nom" type="text" placeholder="nom du paramètre"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
   <button ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
 
 </ion-content>

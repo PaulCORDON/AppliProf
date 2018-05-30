@@ -21,9 +21,6 @@ export class PageScannerTextePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PageScannerTextePage');
   }
-  onClickCamera(){
-    
-  }
   onClickPaper(){
     
   }

@@ -5,6 +5,7 @@ import { Classe } from '../../model/Classe';
 import { ParamEm1 } from '../../model/ParamEm1';
 import { ParamEm2 } from '../../model/ParamEm2';
 import { ParamEl1 } from '../../model/ParamEl1';
+import { SousCompetence } from '../../model/SousCompetence';
 
 /*
   Generated class for the ApiServiceProvider provider.
@@ -22,16 +23,7 @@ export class ApiServiceProvider {
   apiUrl='http://localhost:9090';
 
 
-  getEleves(nameClasse: string) {
-    // return new Promise(resolve => {
-    //   this.http.get(this.apiUrl+'/users').subscribe(data => {
-    //     resolve(data);
-    //   }, err => {
-    //     console.log(err);
-    //   });
-    // });
-  }
-
+  
   addEleve(data:Eleve):Promise<void> {
     return new Promise((resolve, reject) => {
       let headers:HttpHeaders = new HttpHeaders();
@@ -53,8 +45,6 @@ export class ApiServiceProvider {
         });
     });
   }
-
-
   deleteEleve(eleve:Eleve,classe:Classe):Promise<void>{
     return new Promise((resolve, reject) => {
       this.http.delete(this.apiUrl+'/classe/'+classe.nom+'/eleve/'+eleve.nomPrenom)
@@ -66,8 +56,6 @@ export class ApiServiceProvider {
     });
 
   }
-
-
   getAllClasse(): Promise<Array<Classe>> {    
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
@@ -81,7 +69,6 @@ export class ApiServiceProvider {
       });
     });
   }
-
   getClasses(nomClasse:String ):Promise<Classe> {
     return new Promise((resolve, reject) => {
 
@@ -95,7 +82,6 @@ export class ApiServiceProvider {
       });
     });
   }
-
   addClasse(data:Classe):Promise<void> {
     return new Promise((resolve, reject) => {
       let headers:HttpHeaders = new HttpHeaders();
@@ -116,7 +102,6 @@ export class ApiServiceProvider {
         });
     });
   }
-
   deleteClasse(classe:Classe):Promise<void>{
     return new Promise((resolve, reject) => {
       this.http.delete(this.apiUrl+'/classe/'+classe.nom)
@@ -128,46 +113,57 @@ export class ApiServiceProvider {
     });
 
   }
-
-  addParamEm1(data:ParamEm1):Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/users', JSON.stringify(data))
-        .subscribe(res => {
-          resolve();
-        }, (err) => {
-          reject(err);
-        });
+  getAllParamEm1():Promise<Array<ParamEm1>> {
+    return new Promise(resolve => {
+      let headers: HttpHeaders = new HttpHeaders();
+      headers.append('Accept','application/json');
+      this.http.get(this.apiUrl+'/paramEm1').subscribe(data => {
+        let json: Array<ParamEm1> = data as Array<ParamEm1>;
+        console.log(data);
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
     });
   }
-  addParamEm2(data:ParamEm2):Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/users', JSON.stringify(data))
-        .subscribe(res => {
-          resolve();
-        }, (err) => {
-          reject(err);
-        });
+  getAllParamEm2():Promise<Array<ParamEm2>> {
+    return new Promise(resolve => {
+      let headers: HttpHeaders = new HttpHeaders();
+      headers.append('Accept','application/json');
+      this.http.get(this.apiUrl+'/paramEm2').subscribe(data => {
+        let json: Array<ParamEm2> = data as Array<ParamEm2>;
+        console.log(data);
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }  
+  getAllParamEl1():Promise<Array<ParamEl1>> {
+    return new Promise(resolve => {
+      let headers: HttpHeaders = new HttpHeaders();
+      headers.append('Accept','application/json');
+      this.http.get(this.apiUrl+'/paramEl1').subscribe(data => {
+        let json: Array<ParamEl1> = data as Array<ParamEl1>;
+        console.log(data);
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
     });
   }
-  addParamEl1(data:ParamEl1):Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl+'/users', JSON.stringify(data))
-        .subscribe(res => {
-          resolve();
-        }, (err) => {
-          reject(err);
-        });
+  getSousCompetencesEleve(el:Eleve,cl:Classe):Promise<Array<SousCompetence>>{
+    return new Promise(resolve => {
+      let headers: HttpHeaders = new HttpHeaders();
+      headers.append('Accept','application/json');
+      this.http.get(this.apiUrl+'/classe/'+cl.nom+'/eleve/'+el.nomPrenom+'/SousCompetence').subscribe(data => {
+        let json: Array<SousCompetence> = data as Array<SousCompetence>;
+        console.log(data);
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
     });
-  }
-  
-  getRegistredParam() {
-    // return new Promise(resolve => {
-    //   this.http.get(this.apiUrl+'/users').subscribe(data => {
-    //     resolve(data);
-    //   }, err => {
-    //     console.log(err);
-    //   });
-    // });
   }
   
 }

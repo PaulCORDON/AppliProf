@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>PageConsultationComp</ion-title>
+    <ion-title>Consultation de compétence</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,24 +17,33 @@
   <h1>Compétences</h1>
   <ion-grid>
     <ion-row>
-      <ion-col col-10 offset-1>
+      <ion-col>
         <ion-list>
           <ion-item>
             <ion-label>Classe</ion-label>
-            <ion-select [(ngModel)]="classe">
-              <ion-option *ngFor="let classe of listeClasse" value=classe.name>classe.nom</ion-option>
+            <ion-select [(ngModel)]="classe" (ionChange)="onChangeClasse()">
+              <ion-option *ngFor="let cl of listeClasse"  >{{cl.nom}}</ion-option>
             </ion-select>
           </ion-item>
           <ion-item>
             <ion-label>Eleve</ion-label>
-            <ion-select [(ngModel)]="eleve">
-              <ion-option *ngFor="let eleve of listeEleve" value=eleve.name>eleve.name</ion-option>
+            <ion-select [(ngModel)]="eleve" (ionChange)="onChangeEleve()">
+              <ion-option *ngFor="let eleve of listeEleve">{{eleve.nomPrenom}}</ion-option>
             </ion-select>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-card  *ngFor="let comp of listeCompetence" (click)='onClickCardComp(comp)'>
+    <ion-card-header>
+      {{comp.name}}      
+    </ion-card-header>
   
+    <ion-card-content>
+      <progress value={{comp.progress}} max="100"></progress>
+    </ion-card-content>  
+  </ion-card>
   
 </ion-content>

@@ -22,7 +22,7 @@ export class ModifParamEl1Page {
   nbProp: Number = 2;
   param: ParamEl1;
   tempsApp:Number;
-
+  nom:String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -35,7 +35,7 @@ export class ModifParamEl1Page {
     }
     
     this.tempsApp = this.tpsRep * 1000;
-    this.param = new ParamEl1(1, this.tempsApp, this.nbMotTotal, this.isMultipleAppSimult, this.isDispEnonce, this.nbProp);
+    this.param = new ParamEl1(this.nom,1, this.tempsApp, this.nbMotTotal, this.isMultipleAppSimult, this.isDispEnonce, this.nbProp);
     console.log(JSON.stringify(this.param));
 
   }

@@ -1,12 +1,13 @@
 export class SousCompetence {
     public competenceId:number;
     public name:String;
-    public progression:number;
+    public progress:number;
     public sousCompetenceId:number;
     public description:String;
-   
+    public nomCompetenceMere:String;
+    public nbFoisTest:Number;
     constructor(name:String,progression:number){
            this.name=name;
-           this.progression=progression;
+           this.progress=progression;
     } 
 }

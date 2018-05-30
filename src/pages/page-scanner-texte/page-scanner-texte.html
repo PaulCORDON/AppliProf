@@ -7,22 +7,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>PageScannerTexte</ion-title>
+    <ion-title>Importer un texte</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <h1>Importer texte</h1>
-    <p>Tapez le texte avec lequel vous voulez que nous générions l'énoncé.Vous pouvez aussi utiliser la reconnaissance de texte à la place de le saisir manuellement.</p>
+    <p>Tapez le texte avec lequel vous voulez que nous générions l'énoncé.</p>
   <textarea></textarea>
-
-  <button ion-button icon-right (click)='onClickCamera()'>
-    Reconnaissance textuel
-    <ion-icon name="camera"></ion-icon>
-  </button>
-
   <button ion-button icon-right (click)='onClickPaper()'>
     Générer énoncé
     <ion-icon name="paper"></ion-icon>

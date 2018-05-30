@@ -3,7 +3,7 @@ import { SousCompetence } from "./SousCompetence";
 export class Competence {
     public id:number;
     public name:String;
-    public progression:number;
+    public progress:number;
     public listeSousCompetence: Array<SousCompetence>;
    
     constructor(name:String,listeSousCompetence: SousCompetence[]){
@@ -12,9 +12,9 @@ export class Competence {
            let somme=0;
            let compteur=0;
            listeSousCompetence.forEach(e => {               
-                somme = e.progression+somme;
+                somme = e.progress+somme;
                 compteur++;
            });
-           this.progression=somme/compteur;
+           this.progress=somme/compteur;
     } 
 }

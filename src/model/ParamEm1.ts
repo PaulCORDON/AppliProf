@@ -1,6 +1,10 @@
 import { ParamMath } from "./ParamMath";
 
 export class ParamEm1 extends ParamMath{
+    public operateur4: Boolean;
+    public operateur3: Boolean;
+    public operateur2: Boolean;
+    public operateur1: Boolean;
     /**
      * nom du parametre donner par le prof
      */
@@ -60,12 +64,19 @@ export class ParamEm1 extends ParamMath{
      * boolean pour dire si l'exercice utilisera une frise ou des boutons
      */   
 
+
+
+
     public constructor(nom:String,f:Boolean ,t:Number,p:Boolean,o:Boolean[],nbb:Number,nbq:Number,d:Boolean,tra:Number,oa:Boolean,bs:Boolean,beo:Boolean,vm:Number)
     /**
      * Constructeur de paramètres personalisés
      */
     {
         super(t, p, o);
+        this.operateur1=o[0];
+        this.operateur2=o[1];
+        this.operateur3=o[3];
+        this.operateur4=o[4];
         this.nom=nom;
         this.frise = f;
         this.nbBornes = nbb;

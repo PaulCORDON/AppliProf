@@ -188,6 +188,7 @@
       </ion-item>
     </ion-col>
   </ion-row>
-  <h4 *ngIf="!useDiv && !useMult && !useMoins && !usePlus" class="warn">Vous êtes obliger de cocher un des 4 opérateurs.</h4>
-  <button *ngIf="!(!useDiv && !useMult && !useMoins && !usePlus)" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
+  <h4 *ngIf="!useDiv && !useMult && !useMoins && !usePlus" class="warn">Vous êtes obligé de cocher un des 4 opérateurs.</h4>
+  <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom au paramètre.</h4>
+  <button *ngIf="!(nom=='')&&!(!useDiv && !useMult && !useMoins && !usePlus)" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
 </ion-content>

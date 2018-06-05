@@ -57,6 +57,15 @@
       </ion-item>
     </ion-col>
   </ion-row>
+  <h4>Mettre des calculs qui s'enchainent</h4>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>exemple 7+8 puis 7+18 puis 7+28</ion-label>
+        <ion-checkbox [(ngModel)]="useCalcChaine"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+  </ion-row>
   <h4>Opérateurs à utiliser</h4>
   <ion-row>
       <ion-col>
@@ -100,5 +109,6 @@
     </ion-row>
     <h4 *ngIf="!usePair && !useImpair" class="warn">Vous êtes obliger de cocher un des 2 type de nombre.</h4>
     <h4 *ngIf="!useDiv && !useMult && !useMoins && !usePlus" class="warn">Vous êtes obliger de cocher un des 4 opérateurs.</h4>
-    <button *ngIf="!(!useDiv && !useMult && !useMoins && !usePlus)&&!(!usePair && !useImpair)" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
+    <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom au paramètre.</h4>
+    <button *ngIf="!(nom=='')&&!(!useDiv && !useMult && !useMoins && !usePlus)&&!(!usePair && !useImpair)" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
 </ion-content>

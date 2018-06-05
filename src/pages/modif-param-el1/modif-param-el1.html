@@ -102,7 +102,8 @@
       </ion-item>
     </ion-col>
   </ion-row>
+  <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom au paramètre.</h4>
 
-  <button ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
+  <button *ngIf="!(nom=='')" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
 
 </ion-content>

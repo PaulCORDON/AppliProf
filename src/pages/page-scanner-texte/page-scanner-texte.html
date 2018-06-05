@@ -14,10 +14,39 @@
 
 
 <ion-content padding>
-    <p>Tapez le texte avec lequel vous voulez que nous générions l'énoncé.</p>
-  <textarea></textarea>
+  <p>Tapez le texte avec lequel vous voulez que nous générions l'énoncé.</p>
+  <textarea [(ngModel)]="texte"></textarea>
   <button ion-button icon-right (click)='onClickPaper()'>
     Générer énoncé
     <ion-icon name="paper"></ion-icon>
   </button>
+
+
+  <h4 *ngIf="listeEnonce.length != 0"> Liste des énoncés générées. </h4>
+
+
+
+
+  <ion-card *ngFor="let enonc of listeEnonce">
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" value="{{enonc.resultat}}" (ionChange)="onChangeEnonce(enonc,value)"></ion-input>
+      </ion-item>
+      <button ion-button icon-right (click)='onClickSupprEnonce(enonc)'>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+
+  <button *ngIf="listeEnonce.length != 0" ion-button icon-right (click)='onClickValider()'>
+    Valider
+  </button>
+
+
+
 </ion-content>

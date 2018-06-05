@@ -152,6 +152,59 @@ export class ApiServiceProvider {
       });
     });
   }
+  addParamEl1(data:ParamEl1):Promise<void>{
+    return new Promise((resolve, reject) => {
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+     console.log(JSON.stringify(data));
+      this.http.post(this.apiUrl+'/paramEl1', 
+                    JSON.stringify(data), 
+                    { headers: headers })
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  addParamEm1(data:ParamEm1):Promise<void>{
+    return new Promise((resolve, reject) => {
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+     console.log(JSON.stringify(data));
+      this.http.post(this.apiUrl+'/paramEm1', 
+                    JSON.stringify(data), 
+                    { headers: headers })
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  addParamEm2(data:ParamEm2):Promise<void>{
+    return new Promise((resolve, reject) => {
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+      /*
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+      */
+     console.log(JSON.stringify(data));
+      this.http.post(this.apiUrl+'/paramEm2', 
+                    JSON.stringify(data), 
+                    { headers: headers })
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
   getSousCompetencesEleve(el:Eleve,cl:Classe):Promise<Array<SousCompetence>>{
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
@@ -164,6 +217,20 @@ export class ApiServiceProvider {
         console.log(err);
       });
     });
+  }
+  getEnonce(mot:String):Promise<Array<String>>{
+    return new Promise(resolve => {
+      let headers: HttpHeaders = new HttpHeaders();
+      headers.append('Accept','application/json');
+      this.http.get(this.apiUrl+'/mots/'+mot).subscribe(data => {
+        let json: Array<String> = data as Array<String>;
+        console.log(data);
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
+    });
+
   }
   
 }

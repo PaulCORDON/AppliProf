@@ -57,5 +57,13 @@ export class ParamEnregistresPage {
       console.log(`getParamEm2 ${JSON.stringify(err)}`);
     });
   }
-
+  onClickAppliParamEl1(param:ParamEl1){
+    this.navCtrl.push(`AppliquerParamPage`,{paramEl1:param,paramEm1:null,paramEm2:null});
+  }
+  onClickAppliParamEm1(param:ParamEm1){
+    this.navCtrl.push(`AppliquerParamPage`,{paramEl1:null,paramEm1:param,paramEm2:null});
+  }
+  onClickAppliParamEm2(param:ParamEm2){
+    this.navCtrl.push(`AppliquerParamPage`,{paramEl1:null,paramEm1:null,paramEm2:param});
+  }
 }

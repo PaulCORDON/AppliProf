@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ParamEl1 } from '../../model/ParamEl1';
+import { ApiServiceProvider } from '../../providers/api-service/api-service';
 
 /**
  * Generated class for the ModifParamEl1Page page.
@@ -22,8 +23,8 @@ export class ModifParamEl1Page {
   nbProp: Number = 2;
   param: ParamEl1;
   tempsApp:Number;
-  nom:String;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  nom:String="";
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiservice:ApiServiceProvider) {
   }
 
   ionViewDidLoad() {
@@ -37,6 +38,9 @@ export class ModifParamEl1Page {
     this.tempsApp = this.tpsRep * 1000;
     this.param = new ParamEl1(this.nom,1, this.tempsApp, this.nbMotTotal, this.isMultipleAppSimult, this.isDispEnonce, this.nbProp);
     console.log(JSON.stringify(this.param));
-
+    this.apiservice.addParamEl1(this.param).then(() => {
+      console.log("ok");
+      this.navCtrl.pop();
+    })
   }
 }

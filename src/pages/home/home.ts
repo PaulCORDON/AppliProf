@@ -4,7 +4,7 @@ import { CardAccueuil } from '../../model/CardAccueil';
 import { PageConsultationCompPage } from '../page-consultation-comp/page-consultation-comp';
 import { PageMenuParamExoPage } from '../page-menu-param-exo/page-menu-param-exo';
 import { PageScannerTextePage } from '../page-scanner-texte/page-scanner-texte';
-//import { PageConsultationHistActPage } from '../page-consultation-hist-act/page-consultation-hist-act';
+import { PageConsultationHistActPage } from '../page-consultation-hist-act/page-consultation-hist-act';
 import { PageGestionEffPage } from '../page-gestion-eff/page-gestion-eff';
 //import { PageParamSyExpertPage } from '../page-param-sy-expert/page-param-sy-expert';
 
@@ -21,7 +21,7 @@ export class HomePage {
     this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Consultation des compétences",PageConsultationCompPage));
     this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Paramètrer les exercices",PageMenuParamExoPage));
     this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Importer texte",PageScannerTextePage));
-    //this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Historique activités élèves",PageConsultationHistActPage));
+    this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Historique activités élèves",PageConsultationHistActPage));
     this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Gestion de l'effectif",PageGestionEffPage));
     //this.listeCard.push(new CardAccueuil("assets/imgs/ardoise.jpg","Gestion du système expert",PageParamSyExpertPage));   
   }

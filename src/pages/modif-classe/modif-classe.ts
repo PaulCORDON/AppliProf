@@ -30,23 +30,18 @@ export class ModifClassePage {
     console.log(`getClasse ${JSON.stringify(this.classe.listeEleve)}`);
   }
 
-  ionViewWillEnter(){
-    this.listeEleve=this.classe.listeEleve;
-    console.log(`getClasse ${JSON.stringify(this.classe.listeEleve)}`);
-  }
-
   onClickAddEleve(){
     this.navCtrl.push(AjoutElevePage,{classe:this.classe});
   }
-  onClickModifEleve(eleve){}
 
   onClickSupprEleve(eleve){
     this.apiservice.deleteEleve(eleve,this.classe).then(()=>{
-      let nom=this.classe.nom;
-      this.apiservice.getClasses(this.classe.nom).then(res=>{this.classe=res;
-        this.classe.nom=nom;
-      })
-      
-    })
+      console.log(eleve.nomPrenom+' à bien été supprimé');
+      this.apiservice.getClasses(this.classe.nom).then((rep)=>{
+        this.classe=rep;
+        this.navCtrl.push(ModifClassePage,{classe:this.classe});
+        this.navCtrl.pop();
+      });
+    });
   }
 }

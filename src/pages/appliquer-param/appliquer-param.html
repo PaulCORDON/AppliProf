@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>appliquer-param</ion-title>
+    <ion-title>appliquer {{nomParam}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  
+  <ion-list *ngFor="let classe of listeClasse">
+    <h2  (click)='onClickaddClasse(classe)'>{{classe.nom}}</h2>
+    <ion-row *ngFor="let eleve of classe.listeEleve">
+      <ion-col>
+        <div *ngIf="!eleve.haveTheParam"><h4 (click)='onClickaddEleve(eleve)'>{{eleve.nomPrenom}}  <ion-icon name="close"></ion-icon></h4></div>
+        <div *ngIf="eleve.haveTheParam"><h4 (click)='onClickremoveEleve(eleve)'>{{eleve.nomPrenom}}  <ion-icon name="checkmark"></ion-icon></h4></div>
+      </ion-col>
+    </ion-row>    
+  </ion-list>
 
-</ion-content>
+  <button ion-button color="secondary" (click)='onValider()'>Valider</button>
+
+
+ </ion-content>

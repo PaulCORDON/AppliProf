@@ -7,6 +7,7 @@ export class Eleve {
     public classeId:number;
     public listeCompetence: Array<Competence>;
     public classeName: String ;
+    public haveTheParam : boolean=false;
     constructor(name:String,classeId:number,dateDeNaissance:Date,classeName: String,listeCompetence: Competence[],){
            this.nomPrenom=name;
            this.classeId=classeId;

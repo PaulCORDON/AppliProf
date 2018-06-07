@@ -72,7 +72,7 @@ export class ApiServiceProvider {
   getClasses(nomClasse:String ):Promise<Classe> {
     return new Promise((resolve, reject) => {
 
-      this.http.get(this.apiUrl+'/classe').subscribe(data => {
+      this.http.get(this.apiUrl+'/classe/'+nomClasse).subscribe(data => {
         console.log(data);
         let json:Classe = data as Classe;
         resolve(json);
@@ -232,5 +232,44 @@ export class ApiServiceProvider {
     });
 
   }
-  
+  applyParam(typeParam:String,nomParam:String,nomClasse:String,nomPrenom:String):Promise<void>{
+    return new Promise((resolve, reject) => {
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+      this.http.post(this.apiUrl+'/'+typeParam+'/'+nomParam+'/classe/'+nomClasse+'/eleve/'+nomPrenom, 
+                    JSON.stringify([]), 
+                    {headers: headers})
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+  disapplyParam(typeParam:String,nomParam:String):Promise<void>{
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.apiUrl+'/parameleve/'+typeParam+'/'+nomParam)
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  getElevesAvecParam(nomParam:String,typeParam:String):Promise<Array<Eleve>>{
+    return new Promise(resolve => {
+      let headers: HttpHeaders = new HttpHeaders();
+      headers.append('Accept','application/json');
+      this.http.get(this.apiUrl+'/parameleve/'+typeParam+'/'+nomParam).subscribe(data => {
+        let json: Array<Eleve> = data as Array<Eleve>;
+        console.log(data);
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
 }

@@ -36,12 +36,7 @@ export class ModifClassePage {
 
   onClickSupprEleve(eleve){
     this.apiservice.deleteEleve(eleve,this.classe).then(()=>{
-      console.log(eleve.nomPrenom+' à bien été supprimé');
-      this.apiservice.getClasses(this.classe.nom).then((rep)=>{
-        this.classe=rep;
-        this.navCtrl.push(ModifClassePage,{classe:this.classe});
-        this.navCtrl.pop();
-      });
+      this.listeEleve.splice(this.listeEleve.indexOf(eleve), 1);
     });
   }
 }

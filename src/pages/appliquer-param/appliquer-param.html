@@ -14,18 +14,30 @@
 
 
 <ion-content padding>
-  
+
   <ion-list *ngFor="let classe of listeClasse">
-    <h2  (click)='onClickaddClasse(classe)'>{{classe.nom}}</h2>
-    <ion-row *ngFor="let eleve of classe.listeEleve">
-      <ion-col>
-        <div *ngIf="!eleve.haveTheParam"><h4 (click)='onClickaddEleve(eleve)'>{{eleve.nomPrenom}}  <ion-icon name="close"></ion-icon></h4></div>
-        <div *ngIf="eleve.haveTheParam"><h4 (click)='onClickremoveEleve(eleve)'>{{eleve.nomPrenom}}  <ion-icon name="checkmark"></ion-icon></h4></div>
-      </ion-col>
-    </ion-row>    
+    <h2 (click)='onClickaddClasse(classe)'>{{classe.nom}}</h2>
+    <div *ngFor="let eleve of classe.listeEleve">
+      <ion-row>
+          <ion-col col-10  *ngIf="!eleve.haveTheParam">
+            <h4 (click)='onClickaddEleve(eleve)'>{{eleve.nomPrenom}}</h4>
+          </ion-col>
+          <ion-col col-2  *ngIf="!eleve.haveTheParam">
+            <ion-icon class="rouge" name="close"></ion-icon>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-10 *ngIf="eleve.haveTheParam">          
+            <h4 (click)='onClickremoveEleve(eleve)'>{{eleve.nomPrenom}} </h4>          
+        </ion-col>
+        <ion-col col-2 *ngIf="eleve.haveTheParam">          
+            <ion-icon  class="vert" name="checkmark"></ion-icon>          
+        </ion-col>
+      </ion-row>
+    </div>
   </ion-list>
 
   <button ion-button color="secondary" (click)='onValider()'>Valider</button>
 
 
- </ion-content>
+</ion-content>

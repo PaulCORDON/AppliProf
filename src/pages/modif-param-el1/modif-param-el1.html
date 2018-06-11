@@ -24,10 +24,12 @@
     <ion-input [(ngModel)]="nbMotTotal" type="number" placeholder="Temps de réponse" min="1"></ion-input>
   </ion-item>
   <ion-row>
-    <ion-col col-8>
-      <h5>Faire apparaitre plusieurs proposition à la fois</h5>
+    <ion-col>
+      <h4>Faire apparaitre plusieurs proposition à la fois</h4>
     </ion-col>
-    <ion-col col-4>
+  </ion-row>
+  <ion-row>
+    <ion-col  col-4 offset-4>
       <ion-item>
         <ion-toggle [(ngModel)]="isMultipleAppSimult"></ion-toggle>
       </ion-item>
@@ -81,10 +83,12 @@
     </ion-list>
   </div>
   <ion-row>
-    <ion-col col-8>
-      <h5>Faire disparaitre l'énoncé au cours de l'exercice</h5>
+    <ion-col>
+      <h4>Faire disparaitre l'énoncé au cours de l'exercice</h4>
     </ion-col>
-    <ion-col col-4>
+  </ion-row>
+  <ion-row>
+    <ion-col col-4 offset-4>
       <ion-item>
         <ion-toggle [(ngModel)]="isDispEnonce"></ion-toggle>
       </ion-item>
@@ -92,7 +96,7 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <h5>Nom du paramètre à enregistrer</h5>
+      <h4>Nom du paramétrage à enregistrer</h4>
     </ion-col>
   </ion-row>
   <ion-row>

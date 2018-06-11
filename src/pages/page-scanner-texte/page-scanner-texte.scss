@@ -4,4 +4,25 @@ page-page-scanner-texte {
         width: 100%; 
         
     }
+    ion-textarea{
+        height: max-content;
+        padding-left: 0px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    .card-content-md{
+        height: max-content;
+        padding-left: 0px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    .item.item-textarea{
+        padding-left: 1px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        height: max-content;
+    }
+    ion-card{
+        height: max-content;
+    }
 }

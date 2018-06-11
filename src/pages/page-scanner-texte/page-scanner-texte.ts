@@ -40,6 +40,8 @@ export class PageScannerTextePage {
   }
   onClickValider(){
     console.log(JSON.stringify(this.listeEnonce));
+    this.navCtrl.push(`AppliquerEnoncePage`,{listeEnonce:this.listeEnonce});
+    
   }
   onClickSupprEnonce(enonc){
     let liste:Array<Enonce> = this.listeEnonce;
@@ -51,8 +53,10 @@ export class PageScannerTextePage {
     })
   }
 
-  onChangeEnonce(enonc,value){
-    enonc=value;
-    console.log("coucou");
+  onChangeEnonce(value,i){
+    console.log("prout "+value.resultat);
+    
+    value.actualise();
+    console.log(JSON.stringify(this.listeEnonce));
   }
 }

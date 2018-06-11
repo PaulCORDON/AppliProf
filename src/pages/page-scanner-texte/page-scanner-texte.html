@@ -22,27 +22,25 @@
   </button>
 
 
-  <h4 *ngIf="listeEnonce.length != 0"> Liste des énoncés générées. </h4>
+  <h4 *ngIf="listeEnonce.length != 0"> Liste des énoncés générées </h4>
 
-
-
-
-  <ion-card *ngFor="let enonc of listeEnonce">
+  <ion-card *ngFor="let enonc of listeEnonce ; let i = index">
     <ion-card-content>
-      <ion-item>
-        <ion-input type="text" value="{{enonc.resultat}}" (ionChange)="onChangeEnonce(enonc,value)"></ion-input>
-      </ion-item>
-      <button ion-button icon-right (click)='onClickSupprEnonce(enonc)'>
-        <ion-icon name="trash"></ion-icon>
-      </button>
+      <ion-row>
+        <ion-col col-10>
+          <ion-item>
+            <ion-textarea [(ngModel)]="listeEnonce[i].resultat" (ionChange)="onChangeEnonce(listeEnonce[i],i)"></ion-textarea>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button large clear icon-right (click)='onClickSupprEnonce(enonc)'>
+            <ion-icon name="ios-trash-outline"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
-
-
-
-
-
-
+  
   <button *ngIf="listeEnonce.length != 0" ion-button icon-right (click)='onClickValider()'>
     Valider
   </button>

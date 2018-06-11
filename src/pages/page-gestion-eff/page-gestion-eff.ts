@@ -46,9 +46,7 @@ export class PageGestionEffPage {
   }
   onClickSupprClasse(c:Classe){
     this.apiservice.deleteClasse(c).then(()=>{
-      this.apiservice.getAllClasse().then((rep)=>{
-        this.listeClasse=rep;
-      })
+      this.listeClasse.splice(this.listeClasse.indexOf(c), 1);
     })
   }
   

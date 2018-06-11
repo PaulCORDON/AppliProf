@@ -6,6 +6,7 @@ import { ParamEm1 } from '../../model/ParamEm1';
 import { ParamEm2 } from '../../model/ParamEm2';
 import { ParamEl1 } from '../../model/ParamEl1';
 import { SousCompetence } from '../../model/SousCompetence';
+import { EnonceAEnvoyer } from '../../model/EnonceAEnvoyer';
 
 /*
   Generated class for the ApiServiceProvider provider.
@@ -21,6 +22,7 @@ export class ApiServiceProvider {
     console.log('Hello ApiServiceProvider Provider');
   }
   apiUrl='http://localhost:9090';
+  //apiUrl='http://172.24.1.1:9090';
 
 
   
@@ -29,11 +31,10 @@ export class ApiServiceProvider {
       let headers:HttpHeaders = new HttpHeaders();
       headers = headers.set('Content-Type','application/json;charset=UTF-8');
       headers = headers.set('Accept', 'application/json');
-      /*
       headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
       headers = headers.append('Access-Control-Allow-Origin', '*');
       headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
-      */
+      
      console.log(JSON.stringify(data));
       this.http.post(this.apiUrl+'/eleve', 
                     JSON.stringify(data), 
@@ -60,6 +61,9 @@ export class ApiServiceProvider {
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/classe').subscribe(data => {
         let json: Array<Classe> = data as Array<Classe>;
         console.log(data);
@@ -87,11 +91,9 @@ export class ApiServiceProvider {
       let headers:HttpHeaders = new HttpHeaders();
       headers = headers.set('Content-Type','application/json;charset=UTF-8');
       headers = headers.set('Accept', 'application/json');
-      /*
       headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
       headers = headers.append('Access-Control-Allow-Origin', '*');
       headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
-      */
       this.http.post(this.apiUrl+'/classe', 
                     JSON.stringify(data), 
                     { headers: headers })
@@ -117,6 +119,9 @@ export class ApiServiceProvider {
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/paramEm1').subscribe(data => {
         let json: Array<ParamEm1> = data as Array<ParamEm1>;
         console.log(data);
@@ -130,6 +135,9 @@ export class ApiServiceProvider {
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/paramEm2').subscribe(data => {
         let json: Array<ParamEm2> = data as Array<ParamEm2>;
         console.log(data);
@@ -143,6 +151,9 @@ export class ApiServiceProvider {
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/paramEl1').subscribe(data => {
         let json: Array<ParamEl1> = data as Array<ParamEl1>;
         console.log(data);
@@ -157,6 +168,9 @@ export class ApiServiceProvider {
       let headers:HttpHeaders = new HttpHeaders();
       headers = headers.set('Content-Type','application/json;charset=UTF-8');
       headers = headers.set('Accept', 'application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
      console.log(JSON.stringify(data));
       this.http.post(this.apiUrl+'/paramEl1', 
                     JSON.stringify(data), 
@@ -173,6 +187,9 @@ export class ApiServiceProvider {
       let headers:HttpHeaders = new HttpHeaders();
       headers = headers.set('Content-Type','application/json;charset=UTF-8');
       headers = headers.set('Accept', 'application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
      console.log(JSON.stringify(data));
       this.http.post(this.apiUrl+'/paramEm1', 
                     JSON.stringify(data), 
@@ -189,11 +206,9 @@ export class ApiServiceProvider {
       let headers:HttpHeaders = new HttpHeaders();
       headers = headers.set('Content-Type','application/json;charset=UTF-8');
       headers = headers.set('Accept', 'application/json');
-      /*
       headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
       headers = headers.append('Access-Control-Allow-Origin', '*');
       headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
-      */
      console.log(JSON.stringify(data));
       this.http.post(this.apiUrl+'/paramEm2', 
                     JSON.stringify(data), 
@@ -205,10 +220,23 @@ export class ApiServiceProvider {
         });
     });
   }
+  deleteParam(typeParam:String,nomParam:String):Promise<void>{
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.apiUrl+'/'+typeParam+'/'+nomParam)
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
   getSousCompetencesEleve(el:Eleve,cl:Classe):Promise<Array<SousCompetence>>{
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/classe/'+cl.nom+'/eleve/'+el.nomPrenom+'/SousCompetence').subscribe(data => {
         let json: Array<SousCompetence> = data as Array<SousCompetence>;
         console.log(data);
@@ -222,6 +250,9 @@ export class ApiServiceProvider {
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/mots/'+mot).subscribe(data => {
         let json: Array<String> = data as Array<String>;
         console.log(data);
@@ -237,6 +268,9 @@ export class ApiServiceProvider {
       let headers:HttpHeaders = new HttpHeaders();
       headers = headers.set('Content-Type','application/json;charset=UTF-8');
       headers = headers.set('Accept', 'application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.post(this.apiUrl+'/'+typeParam+'/'+nomParam+'/classe/'+nomClasse+'/eleve/'+nomPrenom, 
                     JSON.stringify([]), 
                     {headers: headers})
@@ -262,6 +296,9 @@ export class ApiServiceProvider {
     return new Promise(resolve => {
       let headers: HttpHeaders = new HttpHeaders();
       headers.append('Accept','application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
       this.http.get(this.apiUrl+'/parameleve/'+typeParam+'/'+nomParam).subscribe(data => {
         let json: Array<Eleve> = data as Array<Eleve>;
         console.log(data);
@@ -271,5 +308,22 @@ export class ApiServiceProvider {
       });
     });
   }
-
+  applyEnonceParam(tabMot:EnonceAEnvoyer,nomParam:String):Promise<void>{
+    return new Promise((resolve, reject) => {
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+      this.http.post(this.apiUrl+'/paramEl1/'+nomParam+'/enonce', 
+                    JSON.stringify(tabMot), 
+                    {headers: headers})
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

@@ -1,45 +1,49 @@
-export class ParamEl1{
+export class ParamEl1 {
     /**
      * nom du parametre donner par le prof
      */
-    public nom:String;
+    public nom: String;
     /**
      * Nombre de mots contenue dans l'émoncé
      */
-    public nbEnonce:Number;
+    public nbEnonce: Number;
 
     /**
      * Temps d'apparition de chaque proposition de réponces
      */
-    public tempsApparution:Number;
+    public tempsApparution: Number;
 
     /**
      * Nombre de proposition qui seront faite à l'élève
      */
-    public nbApparition:Number;
+    public nbApparition: Number;
 
     /**
      * Vrai : Les propositions pourront apparaitre en meme temps ou pendant qu'une autre est encore affichée.
      * Faux : Les propositions apparaitront les unes apprait les autres.
      */
-    public  multipleApparution:Boolean;
+    public multipleApparution: Boolean;
 
     /**
      * Si multipleApparution est égale à vrai on pourra choisir le nombre d'apparition simultanée
      */
-    public nbAparitionSimultanee:Number;
+    public nbAparitionSimultanee: Number;
 
     /**
      * Vrai : L'énoncé disparaitra au bout d'un certain temps.
      * Faux : L'énoncé ne disparaitra pas.
      */
-    public  enonceDisparait:Boolean;
+    public enonceDisparait: Boolean;
 
     /**
      * Temps au bout duquel l'énoncé disparaitra si elle peut disparaitre.
      */
-    public tempsEnonce:Number;
+    public tempsEnonce: Number;
 
+    /**
+     * Booléen permetant de savoir si on a cliqué sur le paramètre lorsque qu'on veut lui appliquer une liste d'énoncé
+     */
+    public isclicked: boolean=false;
 
     /**
      * Constructeur de ParamEl1 il permet de récupérer les infos saisi dans ModifParamEl1Activity.
@@ -52,8 +56,8 @@ export class ParamEl1{
      * @param enonceDisparait    Vrai : L'énoncé disparaitra au bout d'un certain temps.
      *                           Faux : L'énoncé ne disparaitra pas.
      */
-    public constructor(nom:String, nbEnonce:Number,tempsApparution:Number,nbApparution:Number,multipleApparution:Boolean,enonceDisparait:Boolean,nbAparitionSimultanee:Number) {
-        this.nom=nom;
+    public constructor(nom: String, nbEnonce: Number, tempsApparution: Number, nbApparution: Number, multipleApparution: Boolean, enonceDisparait: Boolean, nbAparitionSimultanee: Number) {
+        this.nom = nom;
         this.enonceDisparait = enonceDisparait;
         this.multipleApparution = multipleApparution;
         this.nbApparition = nbApparution;
@@ -62,5 +66,5 @@ export class ParamEl1{
         this.nbAparitionSimultanee = nbAparitionSimultanee;
     }
 
-   
+
 }

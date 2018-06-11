@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Détails de compétence</ion-title>
+    <ion-title>Détails des réussites</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h2>{{eleve.nomPrenom}}<br>{{comp.name}}</h2>  
+  <h1>{{comp.name}}</h1>  
   <ion-card  *ngFor="let sc of comp.listeSousCompetence">
     <ion-card-header>
       {{sc.name}}      

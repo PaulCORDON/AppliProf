@@ -16,7 +16,8 @@ import { ApiServiceProvider } from '../../providers/api-service/api-service';
   templateUrl: 'modif-param-em1.html',
 })
 export class ModifParamEm1Page {
-  typeRep: any = "boutton";
+  
+  typeRep: String = "boutton";
   nbBornes: Number = 1;
   nbBoutons: Number = 2;
   ordreBtn: Boolean = false;
@@ -85,6 +86,18 @@ export class ModifParamEm1Page {
       this.navCtrl.pop();
     })
   }
+  onChangetrue(){
+    console.log("TRUE ordreBtn "+this.ordreBtn);
+    console.log("type rep "+this.typeRep);
+    console.log("TRUE ordre Frise "+this.ordreFrise);
+  }
+  onChangefalse(){
+    console.log("FALSE ordreBtn "+this.ordreBtn);
+    console.log("type rep "+this.typeRep);
+    console.log("TRUE ordre Frise "+this.ordreFrise);
+  }
+
+
 
 
 }

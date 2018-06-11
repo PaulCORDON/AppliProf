@@ -13,6 +13,11 @@ export class Enonce {
         console.log(JSON.stringify(this.resultat));   
         this.listeMots=arSt;
     } 
-
+    public actualise():void{
+        this.listeMots=[];
+        this.resultat.split(" ").forEach(element => {
+            this.listeMots.push(element);
+        });
+    }
    
 }

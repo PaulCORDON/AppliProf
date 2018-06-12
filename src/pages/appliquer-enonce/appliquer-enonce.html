@@ -7,19 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>appliquer-enonce</ion-title>
+    <ion-title>appliquer énonce</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h4 class="title">Choisissez à quels paramétrages voulez-vous appliquer la liste d'énoncés</h4>
+  <h4 class="title">Sur quel(s) paramétrage(s) voulez vous appliquer les énoncés créés</h4>
 
   <ion-list *ngFor="let param of listeParam">
     <ion-row>
       <ion-col col-10 *ngIf="!param.isclicked">
-        <div >
+        <div>
           <h4 (click)='onClickparam(param)'>{{param.nom}}</h4>
         </div>
       </ion-col>
@@ -28,15 +28,23 @@
       </ion-col>
 
       <ion-col col-10 *ngIf="param.isclicked">
-      <div >
-        <h4 (click)='onClickparam(param)'>{{param.nom}}</h4>
-      </div>
+        <div>
+          <h4 (click)='onClickparam(param)'>{{param.nom}}</h4>
+        </div>
       </ion-col>
       <ion-col col-2 *ngIf="param.isclicked">
         <ion-icon name="checkmark" class="vert"></ion-icon>
-      </ion-col>      
+      </ion-col>
     </ion-row>
   </ion-list>
+  <h4 class="title">Supprimer les anciens énoncés associés au(x) paramétrage(s) choisi(s)</h4>
+  <ion-row>
+    <ion-col col-4 offset-4>
+      <ion-item>
+        <ion-toggle [(ngModel)]="suppHist"></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
   <ion-row>
     <ion-col>
       <button ion-button icon-right (click)='onClickAppliToParamEl1()'>

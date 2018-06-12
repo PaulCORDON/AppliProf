@@ -86,18 +86,12 @@ export class ModifParamEm1Page {
       this.navCtrl.pop();
     })
   }
-  onChangetrue(){
-    console.log("TRUE ordreBtn "+this.ordreBtn);
-    console.log("type rep "+this.typeRep);
-    console.log("TRUE ordre Frise "+this.ordreFrise);
+  onChange(bool:boolean,str:String){
+    if(str=='frise'){
+      this.ordreFrise=bool;
+    }
+    else{
+      this.ordreBtn=bool;
+    }
   }
-  onChangefalse(){
-    console.log("FALSE ordreBtn "+this.ordreBtn);
-    console.log("type rep "+this.typeRep);
-    console.log("TRUE ordre Frise "+this.ordreFrise);
-  }
-
-
-
-
 }

@@ -326,4 +326,22 @@ export class ApiServiceProvider {
         });
     });
   }
+  disapplyEnonceParam(tabMot:EnonceAEnvoyer,nomParam:String):Promise<void>{
+    return new Promise((resolve, reject) => {
+      let headers:HttpHeaders = new HttpHeaders();
+      headers = headers.set('Content-Type','application/json;charset=UTF-8');
+      headers = headers.set('Accept', 'application/json');
+      headers = headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+      headers = headers.append('Access-Control-Allow-Origin', '*');
+      headers = headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+      this.http.post(this.apiUrl+'/paramEl1/'+nomParam+'/supprenonce', 
+                    JSON.stringify(tabMot), 
+                    {headers: headers})
+        .subscribe(res => {
+          resolve();
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }

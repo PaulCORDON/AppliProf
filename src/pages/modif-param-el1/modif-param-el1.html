@@ -102,11 +102,11 @@
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-input [(ngModel)]="nom" type="text" placeholder="nom du paramètre"></ion-input>
+        <ion-input [(ngModel)]="nom" type="text" placeholder="nom du paramétrage"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
-  <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom au paramètre.</h4>
+  <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom à ce paramètre.</h4>
 
   <button *ngIf="!(nom=='')" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
 

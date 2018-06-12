@@ -67,11 +67,11 @@
     <ion-list radio-group [(ngModel)]="ordreBtn">
       <ion-item>
         <ion-label>Calcul avant boutons</ion-label>
-        <ion-radio value=true (click)="onChangetrue()"></ion-radio>
+        <ion-radio value=true (click)="onChange(true,'boutton')"></ion-radio>
       </ion-item>
       <ion-item>
         <ion-label>Boutons avant calcul</ion-label>
-        <ion-radio value=false (click)="onChangefalse()"></ion-radio>
+        <ion-radio value=false (click)="onChange(false,'boutton')"></ion-radio>
       </ion-item>
     </ion-list>
   </div>
@@ -79,11 +79,11 @@
     <ion-list radio-group [(ngModel)]="ordreFrise">
       <ion-item>
         <ion-label>Calcul avant bornes</ion-label>
-        <ion-radio value=true (click)="onChangetrue()"> </ion-radio>
+        <ion-radio value=true (click)="onChange(true,'frise')"> </ion-radio>
       </ion-item>
       <ion-item>
         <ion-label>Bornes avant calcul</ion-label>
-        <ion-radio value=false (click)="onChangefalse()"></ion-radio>
+        <ion-radio value=false (click)="onChange(false,'frise')"></ion-radio>
       </ion-item>
     </ion-list>
   </div>
@@ -178,16 +178,16 @@
     </ion-col>
   </ion-row>
 
-  <h4>Nom du paramètre à enregistrer</h4>
+  <h4>Nom du paramétrage à enregistrer</h4>
 
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-input [(ngModel)]="nom" type="text" placeholder="nom du paramètre"></ion-input>
+        <ion-input [(ngModel)]="nom" type="text" placeholder="nom du paramétrage"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
   <h4 *ngIf="!useDiv && !useMult && !useMoins && !usePlus" class="warn">Vous êtes obligé de cocher un des 4 opérateurs.</h4>
-  <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom au paramètre.</h4>
+  <h4 *ngIf="(nom=='')" class="warn">Veuillez donner un nom à ce paramétrage.</h4>
   <button *ngIf="!(nom=='')&&!(!useDiv && !useMult && !useMoins && !usePlus)" ion-button color="secondary" (click)='onClickEnregistrerParam()'>Enregistrer</button>
 </ion-content>

@@ -19,49 +19,64 @@ import { EnonceAEnvoyer } from '../../model/EnonceAEnvoyer';
 })
 
 export class AppliquerEnoncePage {
-  listeEnonce:Array<Enonce>;
-  enonceFinal:Array<String>;
-  enon:EnonceAEnvoyer;
-  listeParam:Array<ParamEl1>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public apiservice:ApiServiceProvider) {
-    this.listeEnonce=navParams.get("listeEnonce");
+  listeEnonce: Array<Enonce>;
+  enonceFinal: Array<String>;
+  enon: EnonceAEnvoyer;
+  listeParam: Array<ParamEl1>;
+  suppHist: boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiservice: ApiServiceProvider) {
+    this.listeEnonce = navParams.get("listeEnonce");
   }
 
   ionViewDidLoad() {
     this.apiservice.getAllParamEl1()
-    .then((rep) => {
-      this.listeParam = rep;
-      console.log(`getParamEl1 ok`);
-    })
-    .catch((err) => {
-      console.log(`getParamEl1 ${JSON.stringify(err)}`);
-    });
+      .then((rep) => {
+        this.listeParam = rep;
+        console.log(`getParamEl1 ok`);
+      })
+      .catch((err) => {
+        console.log(`getParamEl1 ${JSON.stringify(err)}`);
+      });
   }
-  onClickAppliToParamEl1(){
+  onClickAppliToParamEl1() {
+
+
+
+
     this.listeEnonce.forEach(enonce => {
-      this.enonceFinal=[];
+      this.enonceFinal = [];
       enonce.listeMots.forEach(mot => {
-        if(mot!=""){
+        if (mot != "") {
           this.enonceFinal.push(mot);
         }
-       
+
       });
-      this.enon= new EnonceAEnvoyer(this.enonceFinal);
+      this.enon = new EnonceAEnvoyer(this.enonceFinal);
       this.listeParam.forEach(param => {
-        if(param.isclicked){
-          this.apiservice.applyEnonceParam(this.enon,param.nom).then(()=>{
-          })
-        }          
+        if (param.isclicked) {
+          if (this.suppHist) {            
+            this.apiservice.disapplyEnonceParam(this.enon, param.nom).then(() => {
+              console.log('disapply ok');
+              this.apiservice.applyEnonceParam(this.enon, param.nom).then(() => {
+                console.log('apply ok');
+              })
+            })
+          }
+          else {
+            this.apiservice.applyEnonceParam(this.enon, param.nom).then(() => {
+            })
+          }
+        }
       });
     });
     this.navCtrl.popToRoot();
   }
-  onClickparam(param:ParamEl1){
-    if(param.isclicked){
-      param.isclicked=false;
+  onClickparam(param: ParamEl1) {
+    if (param.isclicked) {
+      param.isclicked = false;
     }
-    else{
-      param.isclicked=true;
+    else {
+      param.isclicked = true;
     }
   }
 }
